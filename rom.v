@@ -24,7 +24,7 @@ initial begin
     memoria[12] = 22900; // Do
     memoria[13] = 22900; // Do
     memoria[14] = 11471; // Do+
-    memoria[15] = 22900; // La
+    memoria[15] = 13635; // La
     memoria[16] = 17191; // Fa
     memoria[17] = 18181; // Mi
     memoria[18] = 20407; // Re
