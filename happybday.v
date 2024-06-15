@@ -3,34 +3,34 @@ module happybday(
     output reg speaker
 );
 
-wire [15:0] frecuencia_de_nota;
+wire [15:0] ciclos_de_nota;
 wire [4:0] direccion_nota;
-wire [23:0] count_time;
+wire [23:0] contador_tiempo;
 
 ROM rom_inst (
     .direccion_nota(direccion_nota),
-    .frecuencia_de_nota(frecuencia_de_nota)
+    .ciclos_de_nota(ciclos_de_nota)
 );
 
-Contador contador_inst (
+Controlador controlador_inst (
     .clk(clk),
     .direccion_nota(direccion_nota),
-    .count_time(count_time)
+    .contador_tiempo(contador_tiempo)
 );
 
-reg [15:0] count;
+reg [15:0] contador;
 
 initial begin
-    speaker = 0;
-    count = 0;   // Inicializar count en 0
+    speaker = 0; 
+    contador = 0;
 end
 
 always @(posedge clk) begin
-    if (count >= frecuencia_de_nota) begin
+    if (contador >= ciclos_de_nota) begin
         speaker <= ~speaker;
-        count <= 0;
+        contador <= 0;
     end else begin
-        count <= count + 1;
+        contador <= contador + 1;
     end
 end
 

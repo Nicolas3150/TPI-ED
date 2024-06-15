@@ -1,6 +1,6 @@
 module ROM(
     input [4:0] direccion_nota,
-    output reg [15:0] frecuencia_de_nota
+    output reg [15:0] ciclos_de_nota
 );
 
 reg [15:0] memoria [24:0];
@@ -23,7 +23,7 @@ initial begin
     //3era estrofa
     memoria[12] = 22900; // Do
     memoria[13] = 22900; // Do
-    memoria[14] = 11471; // Do+
+    memoria[14] = 11471; // +Do
     memoria[15] = 13635; // La
     memoria[16] = 17191; // Fa
     memoria[17] = 18181; // Mi
@@ -38,7 +38,7 @@ initial begin
 end
 
 always @(*) begin
-    frecuencia_de_nota = memoria[direccion_nota];
+    ciclos_de_nota = memoria[direccion_nota];
 end
 
 endmodule
